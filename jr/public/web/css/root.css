@@ -1,0 +1,9 @@
+:root {
+    --clrPrimary:#BB0A0A;
+    --clrContrast:#29359F;
+    --clrHighSecondary:#AEAEAE;
+    --clrHighPrimary:#DFDFDF;
+    --clrLowPrimary:#222222;
+    --clrLowSecondary:black;
+    --fontPrimary: "roman", sans-serif;
+}

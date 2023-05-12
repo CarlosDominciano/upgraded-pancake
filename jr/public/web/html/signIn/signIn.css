@@ -1,0 +1,99 @@
+body{
+    background-image: url(/public/assets/images/stage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 -70px;
+}
+
+.sign-in {
+    margin: 2em 0;
+    width: 100%;
+}
+
+.sign-in .container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    justify-content: space-around;
+    align-items: end;
+}
+
+.sign-in img {
+    height: 250px;
+}
+
+.sign-in form {
+    background-color: #222222f4;
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    padding: 5em 1em;
+    align-items: center;
+    width: 33%;
+}
+
+.sign-in form input {
+    border: none;
+    border-bottom: 2px solid var(--clrHighPrimary);
+    border-radius: 0.3em;
+    background-color: transparent;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--clrHighPrimary);
+    font-size: smaller;
+}
+
+.sign-in form input::placeholder {
+    font-family: var(--fontPrimary);
+    font-size: smaller;
+}
+
+.sign-in form span {
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--clrPrimary);
+}
+
+.sign-in form label {
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    margin-top: 1.3em;
+}
+
+.sign-in form button {
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    border-radius: 0.5em;
+    padding: 0.7em;
+    background-color: var(--clrContrast);
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+}
+
+.sign-in form button:hover {
+    cursor: pointer;    
+    background-color: #1a2165;
+    transform: scale(1.1);
+}
+
+.sign-up form button:active {
+    transition: all 0s;
+    cursor: pointer;    
+    background-color: var(--clrLowPrimary);
+    transform: scale(1.1);
+}
+
+.sign-in form{
+    color: var(--clrHighPrimary);
+}
+
+.sign-in form a { 
+    text-decoration: none;
+    color: var(--clrContrast);
+    margin-bottom: 1em;
+}

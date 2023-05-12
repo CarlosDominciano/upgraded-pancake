@@ -1,0 +1,58 @@
+.about {
+    margin: 2em 0;
+    width: 100%;
+}
+
+.about .container {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about .container h1 {
+    font-size: xx-large;
+    color: var(--clrLowSecondary); 
+}
+
+.about .balloons {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about .balloon {
+    width: 33%;
+    flex-wrap: wrap;
+    background-color: wheat;
+    padding: 0.3rem;
+    border: 2px solid var(--clrLowPrimary);
+    border-radius: 15px;
+}
+
+.about .balloon::after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    position: relative;
+    background-color: wheat;
+    border: 2px solid;
+    border-radius: 5px;
+    display: block;
+    transform: rotate(45deg);
+}
+
+.about .balloon:nth-child(1)::after {
+    left: 200px;
+    top: 20px;
+    border-color: transparent var(--clrLowPrimary) var(--clrLowPrimary) transparent;
+}
+
+.about .balloon:nth-child(2)::after {
+    left: -20px;
+    top: -20px;
+    border-color:transparent transparent var(--clrLowPrimary) var(--clrLowPrimary) ;
+}
