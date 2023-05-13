@@ -1,5 +1,22 @@
-CREATE DATABASE IF NOT EXISTS spidtb_userer_man;
+CREATE DATABASE IF NOT EXISTS spider_man;
 USE spider_man;
+
+CREATE TABLE tb_characters (
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    url_image VARCHAR(255) NOT NULL,
+    hit_points INT NOT NULL,
+    attack INT NOT NULL,
+    defense INT NOT NULL,
+    hero BOOLEAN NOT NULL
+);
+
+CREATE TABLE tb_outfit (
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(30) NOT NULL, 
+    fk_character INT NULL,
+    FOREIGN KEY (fk_character) REFERENCES tb_characters(id)
+);
 
 CREATE TABLE tb_user (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -16,17 +33,5 @@ CREATE TABLE tb_user (
     FOREIGN KEY (fk_outfit) REFERENCES tb_outfit(id)
 );
 
-CREATE TABLE tb_characters (
-	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(30) NOT NULL,
-    url_image VARCHAR(255) NOT NULL,
-    hit_points INT NOT NULL,
-    attack INT NOT NULL,
-    defense INT NOT NULL,
-    hero BOOLEAN NOT NULL
-);
 
-CREATE TABLE tb_outfit (
-	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(30) NOT NULL 
-);
+

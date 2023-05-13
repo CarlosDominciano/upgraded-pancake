@@ -12,10 +12,10 @@ leaveSession.addEventListener('click', () => {
 function validateSession() {
     const email = sessionStorage.EMAIL_USER;
     const name = sessionStorage.NAME_USER;
-    const b_usuario = document.getElementById("b_usuario");
+    const userName = document.getElementById("user");
 
     if (email != null && name != null) {
-        b_usuario.innerHTML = name;
+        userName.textContent = name;
         return true;
     }
     cleanSession()

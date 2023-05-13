@@ -1,5 +1,43 @@
 const canvasOutfit = document.getElementById('canvas_outfit');
-console.log(canvasOutfit)
+const bodySearch = document.getElementsByTagName("body")[0]
+
+body.onload = () => {
+  fetch("/outfits", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  }).then(async function (resposta) {
+    const sltOutfit = document.getElementById("slt_outfit");
+    const outfits = await resposta.json();
+    for (let i = 0; i < outfits.length; i++) {
+      const outfit = outfits[i]
+      const newSltOutfit = document.createElement("option");
+      newSltOutfit.value = outfit.name;
+      newSltOutfit.textContent = outfit.name;
+      sltOutfit.appendChild(newSltOutfit);
+    }
+
+  });
+
+  fetch("/characters", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  }).then(async function (resposta) {
+    const sltCharacter = document.getElementById("slt_character");
+    const characters = await resposta.json();
+    for (let i = 0; i < characters.length; i++) {
+      const character = characters[i]
+      const newSltCharacter = document.createElement("option");
+      newSltCharacter.value = character.name;
+      newSltCharacter.textContent = character.name;
+      sltCharacter.appendChild(newSltCharacter);
+    }
+
+  });
+}
 
 const labels = ['Aranha de ferro','Gwen-Aranha']
 const data = {
@@ -39,26 +77,3 @@ const config = new Chart(canvasOutfit, {
   },
 });
 
-function getOutfit() {
-  fetch("/totens/listarTotem", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    }
-  }).then(async function (resposta) {
-    const containerTotem = document.querySelector(".totens");
-    const totens = await resposta.json();
-    for (let i = 0; i < totens.length; i++) {
-
-      let idTotens = document.createElement("div");
-      console.log(totens[i])
-      idTotens.innerHTML = `<span onclick="mostrarTotem(${totens[i].idTotem})">Totem_${totens[i].idTotem}</span>`;
-
-      containerTotem.appendChild(idTotens);
-    }
-
-  });
-  setTimeout(() => {
-      console.log("foi os totens?")
-  }, 3000);
-}

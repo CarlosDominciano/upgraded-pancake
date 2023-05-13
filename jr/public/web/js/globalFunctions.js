@@ -1,3 +1,6 @@
+const nameUser = sessionStorage.NAME_USER;
+const title = document.title
+
 function loading(id, icon) {
     const loading = document.getElementById(id);
     loading.innerHTML = icon;
@@ -8,7 +11,6 @@ function stopLoading(id, text) {
     loading.innerHTML = text;
 }
 
-const title = document.title
 document.addEventListener("visibilitychange", function() {
     titleFocus(title);
 });
@@ -16,7 +18,7 @@ document.addEventListener("visibilitychange", function() {
 function titleFocus(title) {
     if (document.visibilityState === 'visible') {
       document.title = title;
-    } else if (title.substring(0,2) == "Si" || title.substring(0,1) == "H") {
+    } else if (!nameUser) {
         document.title = "Spider sense is tingling!";
     } else {
       document.title = "We are Venom!";

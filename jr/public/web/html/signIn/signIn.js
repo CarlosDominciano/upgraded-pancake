@@ -55,12 +55,11 @@ form.addEventListener('submit', function(event) {
                 setTimeout(function () {
                     stopLoading(btn.id, textSignIn);
                     window.location = "../game/game.html";
-                }, 1000); // apenas para exibir o loading
+                }, 1000);
             });
         } else {
-            response.text().then(texto => {
+            response.text().then(text => {
                 stopLoading(btn.id, textSignIn);
-
             });
         }
     }).catch(function (error) {
