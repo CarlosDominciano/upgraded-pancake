@@ -20,7 +20,7 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .about .balloon:nth-child(1)::after {
-    left: 200px;
+    left: 50%;
     top: 20px;
     border-color: transparent var(--clrLowPrimary) var(--clrLowPrimary) transparent;
 }

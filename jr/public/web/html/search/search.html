@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="shortcut icon" href="../../../assets/images/spider_man_dark_logo.png" type="image/x-icon">
+    <script defer src="../../js/globalFunctions.js"></script>
+    <script defer src="../../js/validateSession.js"></script>
+    <script defer src="./search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Search</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="container">
+            <a href="../main/main.html">
+                <img src="../../../assets/images/spider_man_dark_logo.png" alt="">
+            </a>
+            <ul>
+                <li class="disabled">
+                    <a style="color: var(--clrPrimary); 
+                    text-shadow: 0 0 8px var(--clrHighPrimary);
+                    cursor: default;" href="#">Search
+                    </a>
+                </li>
+                <li><a href="../game/game.html">Game</a></li>
+                <li><a id="leave_session">Leave...?</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="charts">
+        <div class="container">
+            <div class="segment">
+                <select name="slt_outfit" id="slt_outfit">
+                    <option value="" selected disabled>Selecione</option>
+
+                </select>
+                <select name="slt_character" id="slt_character">
+                    <option value="" selected disabled>Selecione</option>
+                </select>
+            </div>
+            <div class="segment">
+
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div>
+                <p>Copyright © 2023 Roberto Turbiani Jr - All rights reserved</p>
+            </div>
+            <div>
+                <img src="../../../assets/images/facebook.png" alt="">
+                <img src="../../../assets/images/github.png" alt="">
+                <img src="../../../assets/images/instagram.png" alt="">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

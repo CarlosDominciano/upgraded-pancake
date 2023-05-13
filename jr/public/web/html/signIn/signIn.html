@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/web/css/reset.css">
-    <link rel="stylesheet" href="/public/web/css/header.css">
-    <link rel="stylesheet" href="/public/web/css/footer.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="signIn.css">
-    <link rel="shortcut icon" href="/public/assets/images/spider_man_logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../assets/images/spider_man_logo.png" type="image/x-icon">
+    <script defer src="../../js/globalFunctions.js"></script>
+    <script defer src="signIn.js"></script>
+    <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Sign In</title>
 </head>
 <body>
     <header class="header">
         <nav class="container">
-            <img src="/public/assets/images/spider_man_logo.png" alt="">
+            <a href="../game/game.html">
+                <img src="../../../assets/images/spider_man_logo.png" alt="">
+            </a>
             <ul>
                 <li><a href="../main/main.html">Home</a></li>
                 <li class="disabled">
@@ -30,7 +36,7 @@
 
     <section class="sign-in">
         <div class="container">
-            <img src="/public/assets/images/fight_venom.gif" alt="">
+            <img src="../../../assets/images/fight_venom.gif" alt="">
             <form id="form_sign_in" action="" method="get">
                 <label for="email">Email</label>
                 <input placeholder="spiderman@marvel.com" type="email" id="email">
@@ -40,7 +46,7 @@
                 <input placeholder="Password" type="password" id="password">
                 <span id="alert_password"></span>
 
-                <button type="submit">Sign In</button>
+                <button id="btn_sign_in" type="submit">Sign In</button>
                 <div>
                     Don't have account?
                 </div>
@@ -54,15 +60,22 @@
                     Click here
                 </a>
             </form>
-            <img style="transform: scaleX(-1);" src="/public/assets/images/fight_spider_man.gif" alt="">
+            <img style="transform: scaleX(-1);" src="../../../assets/images/fight_spider_man.gif" alt="">
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>Copyright © 2023 Roberto Turbiani Jr - All rights reserved</p>
+            <div>
+                <p>Copyright © 2023 Roberto Turbiani Jr - All rights reserved</p>
+            </div>
+            <div>
+                <img src="../../../assets/images/facebook.png" alt="">
+                <img src="../../../assets/images/github.png" alt="">
+                <img src="../../../assets/images/instagram.png" alt="">
+            </div>
         </div>
     </footer>
-    <script src="signIn.js"></script>
+    
 </body>
 </html>

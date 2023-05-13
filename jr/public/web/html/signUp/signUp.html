@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/web/css/reset.css">
-    <link rel="stylesheet" href="/public/web/css/header.css">
-    <link rel="stylesheet" href="/public/web/css/footer.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="signUp.css">
-    <link rel="shortcut icon" href="/public/assets/images/spider_man_logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../assets/images/spider_man_logo.png" type="image/x-icon">
+    <script defer src="../../js/globalFunctions.js"></script>
+    <script defer src="signUp.js"></script>
+    <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Sign Up</title>
 </head>
 <body>
     <header class="header">
         <nav class="container">
-            <img src="/public/assets/images/spider_man_logo.png" alt="">
+            <a href="../game/game.html">
+                <img src="../../../assets/images/spider_man_logo.png" alt="">
+            </a>
             <ul>
                 <li><a href="../main/main.html">Home</a></li>
                 <li><a href="../signIn/signIn.html">Sign In</a></li>
                 <li class="disabled">
                     <a style="color: var(--clrPrimary); 
                     text-shadow: 0 0 8px var(--clrHighPrimary);
-                    cursor: default;" href="../signUp/signUp.html">Sign Up
+                    cursor: default;" href="#">Sign Up
                     </a>
                 </li>
             </ul>
@@ -36,7 +42,7 @@
                 <span id="alert_name"></span>
                 
                 <label for="email">Email</label>
-                <input placeholder="spiderman@marvel.com" type="email" id="email">
+                <input placeholder="spiderman@marvel.stan" type="email" id="email">
                 <span id="alert_email"></span>
 
                 <label for="password">Password</label>
@@ -47,11 +53,12 @@
                 <input placeholder="Confirm Password" type="password" id="confirm_password">
                 <span id="alert_confirm_password"></span>
 
-                <button type="submit">Sign Up</button>
+                <button id="btn_sign_up" type="submit">Sign Up</button>
+                
                 <div>
                     Already have account?
                 </div>
-                <a href="../signIp/signIp.html">
+                <a href="../signIn/signIn.html">
                     Sign In
                 </a>
             </form>
@@ -61,9 +68,16 @@
 
     <footer class="footer">
         <div class="container">
-            <p>Copyright © 2023 Roberto Turbiani Jr - All rights reserved</p>
+            <div>
+                <p>Copyright © 2023 Roberto Turbiani Jr - All rights reserved</p>
+            </div>
+            <div>
+                <img src="../../../assets/images/facebook.png" alt="">
+                <img src="../../../assets/images/github.png" alt="">
+                <img src="../../../assets/images/instagram.png" alt="">
+            </div>
         </div>
     </footer>
-    <script src="signUp.js"></script>
+   
 </body>
 </html>

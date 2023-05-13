@@ -10,7 +10,7 @@ body {
 
 @font-face {
     font-family: 'roman';
-    src: url('/public/assets/fonts/CC-Wild-Words-Roman/cc_wild_words_roman.ttf') format('truetype');
+    src: url('../../assets/fonts/CC-Wild-Words-Roman/cc_wild_words_roman.ttf') format('truetype');
 }
 
 body::-webkit-scrollbar {
