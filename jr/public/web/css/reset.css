@@ -23,7 +23,7 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     background-color: var(--clrPrimary);
-    box-shadow: inset 0 0 4px var(--clrContrast);
+    box-shadow: inset 0 0 4px var(--clrContrastPrimary);
     border-radius: 3px;
 }
 
@@ -31,4 +31,8 @@ body::-webkit-scrollbar-thumb {
 {
      background: var(--clrPrimary); 
      color: var(--clrHighSecondary); 
+}
+
+input:focus, select:focus {
+    outline: none;
 }

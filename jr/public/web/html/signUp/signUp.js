@@ -1,5 +1,5 @@
 const form = document.getElementById("form_sign_up")
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
     const btn = document.getElementById("btn_sign_up")
     const icon = '<ion-icon name="cloud-upload"></ion-icon>'

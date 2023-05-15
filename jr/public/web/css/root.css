@@ -1,9 +1,13 @@
 :root {
     --clrPrimary:#BB0A0A;
-    --clrContrast:#29359F;
+    --clrSecondary:#7d0707;
+    --clrContrastPrimary:#29359F;
+    --clrContrastSecondary: #1a2165;
     --clrHighSecondary:#AEAEAE;
     --clrHighPrimary:#DFDFDF;
     --clrLowPrimary:#222222;
     --clrLowSecondary:black;
+    --clrLowPrimaryOpacity:#222222ec;
     --fontPrimary: "roman", sans-serif;
+    --fontSecondary: Verdana, Geneva, Tahoma, sans-serif;
 }

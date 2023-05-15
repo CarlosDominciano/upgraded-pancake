@@ -1,5 +1,5 @@
 const form = document.getElementById("form_sign_in")
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
     const btn = document.getElementById("btn_sign_in")
     const icon = '<ion-icon name="cloud-download"></ion-icon>'
@@ -36,6 +36,12 @@ form.addEventListener('submit', function(event) {
 
         stopLoading(btn.id, textSignIn);
         return false;
+    } else {
+        for (let i = 0; i < formArray.length; i++) {
+            const element = formArray[i];
+            const alert = document.getElementById(`alert_${element.id}`)
+            alert.textContent = ""
+        }
     }
     fetch("/users/get-user", {
         method: "POST",

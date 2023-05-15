@@ -33,30 +33,35 @@
             </ul>
         </nav>
     </header>
-
+    
     <section class="charts">
         <div class="container">
             <div class="segment">
-                <div class="options">
+                <form id="form_search" action="" method="get" >
                     <select name="slt_outfit" id="slt_outfit">
-                        <option value="" selected disabled>Selecione</option>
-    
+                        <option value="" selected disabled>Outfits</option>
+            
                     </select>
                     <select name="slt_character" id="slt_character">
-                        <option value="" selected disabled>Selecione</option>
+                        <option value="" selected disabled>Charcters</option>
                     </select>
-                </div>
-                <div class="chart" id="chart_character">
+                    <button id="btn_search" type="submit">Insert Vote</button>
+                </form>
 
-                </div>
             </div>
             <div class="segment">
                 <div class="chart" id="chart_outfit">
-                    
+                    <canvas height="100%" style="background-color: rgb(0, 0, 0);" id="canvas_outfit"></canvas>
+                </div>
+
+                <div class="chart" id="chart_character">
+                    <canvas id="canvas_character"></canvas>
                 </div>
             </div>
         </div>
     </section>
+    
+    <img id="imagemFoda" src="" alt="">
 
     <footer class="footer">
         <div class="container">

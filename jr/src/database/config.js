@@ -26,6 +26,7 @@ var mySqlConfig = {
 };
 
 function executar(instrucao) {
+    console.log("instr11111", instrucao)
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         return new Promise(function (resolve, reject) {
             sql.connect(sqlServerConfig).then(function () {

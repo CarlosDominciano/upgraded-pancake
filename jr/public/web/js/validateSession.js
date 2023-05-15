@@ -10,19 +10,20 @@ leaveSession.addEventListener('click', () => {
 })
 
 function validateSession() {
-    const email = sessionStorage.EMAIL_USER;
-    const name = sessionStorage.NAME_USER;
-    const userName = document.getElementById("user");
+    const email = sessionStorage.EMAIL_USER
+    const name = sessionStorage.NAME_USER
+    const userName = document.getElementById("user")
 
     if (email != null && name != null) {
-        userName.textContent = name;
-        return true;
+        userName.textContent = name
+        return true
     }
     cleanSession()
-    return false;
+    return false
 }
 
 function cleanSession() {
-    sessionStorage.clear();
-    window.location = "../main/main.html";
+    alert(`${sessionStorage.NAME_USER}, with great power comes great responsibility.`)
+    sessionStorage.clear()
+    window.location = "../main/main.html"
 }

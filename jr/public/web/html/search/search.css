@@ -7,12 +7,79 @@
     margin: auto;
     width: 90%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;    
     justify-content: space-between;
+    align-items: center;
 }
 
 .charts .segment {
-    width: 45%;
-    background-color: aliceblue;
+    padding: 1em;
+    margin: 1em 0;
+    width: 100%;
+    background-color: var(--clrLowPrimary);
+    border-radius: 0.5em;
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.charts form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.charts form select {
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    font-size: smaller;
+    border: 2px solid var(--clrHighPrimary);
+    width: 25%;
+    border-radius: 0.5em;
+    padding: 0.2em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--clrPrimary);    
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.charts form select:hover {
+    background-color: var(--clrSecondary);
+    cursor: pointer;
+}
+
+.charts form button {
+    font-size: smaller;
+    width: 25%;
+    border-radius: 0.5em;
+    padding: 0.2em;
+    background-color: var(--clrContrastPrimary);
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.charts form button:hover {
+    cursor: pointer;    
+    transform: scale(1.1);
+    background-color: var(--clrContrastSecondary);
+}
+
+.charts form button:active {
+    transition: all 0s;
+    cursor: pointer;    
+    background-color: var(--clrLowPrimary);
+    transform: scale(1.03);
+}
+
+.charts .chart {
+    width: 40%;
 }

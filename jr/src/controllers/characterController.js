@@ -11,6 +11,19 @@ function getAll(req, res) {
     });
 }
 
+function getFavoritedCharacters(req, res) {
+    const fkCharacter = req.params.fkCharacter;
+    characterModel
+    .getFavoritedCharacters(fkCharacter)
+    .then(function (resultado) {
+        res.json(resultado);
+    })
+    .catch(function (erro) {
+        res.status(204).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     getAll,
+    getFavoritedCharacters
 }
