@@ -11,6 +11,9 @@ router.post("/get-user", function (req, res) {
     userController.login(req, res);
 });
 
-
+router.put("/update-outfit-character/:id", function (req, res) {
+    userController.updateOutitAndCharacter(req, res);
+});
+    
 
 module.exports = router;

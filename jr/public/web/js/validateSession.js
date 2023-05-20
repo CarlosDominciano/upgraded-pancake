@@ -1,9 +1,5 @@
-const body = document.getElementsByTagName("body")[0]
 const leaveSession = document.getElementById("leave_session")
-
-body.onload = () => {
-    // validateSession()
-}
+let onGame = false;
 
 leaveSession.addEventListener('click', () => {
     cleanSession()
@@ -12,10 +8,8 @@ leaveSession.addEventListener('click', () => {
 function validateSession() {
     const email = sessionStorage.EMAIL_USER
     const name = sessionStorage.NAME_USER
-    const userName = document.getElementById("user")
 
     if (email != null && name != null) {
-        userName.textContent = name
         return true
     }
     cleanSession()
@@ -23,7 +17,16 @@ function validateSession() {
 }
 
 function cleanSession() {
-    alert(`${sessionStorage.NAME_USER}, with great power comes great responsibility.`)
-    sessionStorage.clear()
-    window.location = "../main/main.html"
+    if (!onGame) {
+        if (sessionStorage.NAME_USER == undefined) {
+            window.location = "../main/main.html"
+        } else {
+            alert(`${sessionStorage.NAME_USER}, with great power comes great responsibility.`)
+            sessionStorage.clear()
+            window.location = "../main/main.html"
+        }
+    } else {
+        alert("Click in 'Leave' button again to log out.")
+        onGame = false;
+    }
 }

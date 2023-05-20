@@ -1,0 +1,191 @@
+.game, .stage {
+    margin: 2em 0;
+    width: 100%;
+}
+
+.game .container, .stage .container {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game .container h1, .stage .container h1 {
+    color: var(--clrLowSecondary); 
+}
+
+.game .text {
+    display: grid;
+    grid-template-columns: 35% auto 35%;
+    width: 100%;
+}
+
+.game .text h1 {
+    justify-self: center;
+}
+
+.game .cards {
+    display: grid;
+    grid-template-columns: 35% auto 35%;
+    padding: 1em 0;
+    width: 100%;
+}
+
+.game .villains, .game .heroes {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5px;
+    height: fit-content;
+}
+
+.game .team {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    margin: 2em 0;
+}
+
+.game .team button {
+    position: fixed;
+    font-size: medium;
+    width: 25%;
+    border-radius: 0.5em;
+    padding: 0.2em 0.1em;
+    background-color: var(--clrPrimary);
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.game .team button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: var(--clrSecondary);
+}
+
+.game .team button:active {
+    transform: scale(1.1);
+    background-color: var(--clrLowPrimary);
+    transition: 0ms;
+}
+
+.game .cards .card {
+    height: 140px;
+    width: 80px;
+    justify-self: center;
+}
+
+.game .cards .card {
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    font-size: medium;
+    padding: 0.4em;
+    -webkit-text-stroke-width: 0.5px;
+    color: var(--clrHighPrimary);
+}
+
+.game .cards .card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.game .cards .card span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.game .cards .card .status {
+    font-size: x-small;
+    -webkit-text-stroke-width: 0px;
+    color: var(--clrLowPrimary);
+    font-family: var(--fontSecondary);
+}
+
+.game .cards .card .name {
+    justify-content: center;
+}
+
+.game .cards .villains .card {
+    border: 0.15em solid var(--clrPrimary);
+    -webkit-text-stroke-color: var(--clrPrimary);
+
+}
+
+.game .cards .heroes .card {
+    border: 0.15em solid var(--clrContrastPrimary);
+    background-image: linear-gradient(to bottom, #ffffff20, #000000b8),
+    url('https://i.pinimg.com/originals/3e/8a/23/3e8a230bdea7a7806c46a0049b748b68.png');
+    -webkit-text-stroke-color: var(--clrContrastPrimary);
+}
+
+
+.stage .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 90%;
+} 
+
+.stage .cards-stage {
+    width: 100%;
+    padding: 1em 0;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    height: fit-content;
+}
+
+.stage .cards-stage .card-stage {
+    background-color: rgb(51, 22, 22);
+    width: 100px;
+    height: 100px;
+    padding: 1em 0;
+    justify-self: center;
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    font-size: medium;
+    padding: 0.4em;
+    -webkit-text-stroke-width: 0.5px;
+    color: var(--clrHighPrimary);
+    border: 0.30em solid var(--clrContrastSecondary);
+}
+
+.stage .cards-stage .card-stage:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.stage .cards-stage .card-stage:nth-child(odd) {
+    border-top-right-radius: 7em;
+    border-bottom-left-radius: 5em;
+    background-image: url("https://fightersgeneration.com/nf9/game/stage/mvc-stage-neo-stpetersburg.gif");
+}
+
+.stage .cards-stage .card-stage:nth-child(even) {
+    border-top-left-radius: 7em;
+    border-bottom-right-radius: 5em;
+    background-image: url("https://fightersgeneration.com/nf9/game/stage/mvc-stage-headquarters-of-evil.gif");
+}

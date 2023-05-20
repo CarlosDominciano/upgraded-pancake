@@ -53,8 +53,26 @@ function createUser(req, res) {
     }
 }
 
+function updateOutitAndCharacter(req, res) {
+    const id = req.params.id
+    const fkCharacter = req.body.fkCharacterServer
+    const fkOutfit = req.body.fkOutfitServer
+    userModel
+    .updateOutitAndCharacter(fkCharacter, fkOutfit, id)
+    .then(
+        function (result) {
+            res.json(result);
+        }
+    ).catch(
+        function (error) {
+            res.status(500).json(error.sqlMessage);
+        }
+    );
+    }
+
 
 module.exports = {
     login,
-    createUser
+    createUser,
+    updateOutitAndCharacter
 }

@@ -10,16 +10,14 @@
     <link rel="stylesheet" href="game.css">
     <link rel="shortcut icon" href="../../../assets/images/spider_man_dark_logo.png" type="image/x-icon">
     <script defer src="../../js/globalFunctions.js"></script>
-    <script defer src="../../js/validateSession.js"></script>
     <script defer src="./game.js"></script>
+    <script defer src="../../js/validateSession.js"></script>
     <title>Card Game</title>
 </head>
 <body>
     <header class="header">
         <nav class="container">
-            <a href="../main/main.html">
-                <img src="../../../assets/images/spider_man_dark_logo.png" alt="">
-            </a>
+            <img src="../../../assets/images/spider_man_dark_logo.png" alt="">
             <ul>
                 <li><a href="../search/search.html">Search</a></li>
                 <li class="disabled">
@@ -32,7 +30,79 @@
             </ul>
         </nav>
     </header>
-    <img style="filter:drop-shadow(22px -22px 22px #04f600)" src="https://game-assets.snap.fan/processed_source_images/Baked/Cards/BlackCat%2FBlackCat_Foreground.webp?v11" alt="">
+
+    <section class="game">
+        <div class="container">
+            <h1>Choose your saviors</h1>
+            <div class="text">
+                <h1>Villains</h1>
+                <h1>VS</h1>
+                <h1>Heroes</h1>
+            </div>
+            <div class="cards">
+                <div id="div_villains" class="villains"></div>
+                <div id="div_team" class="team"></div>
+                <div id="div_heroes" class="heroes"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stage" style="display: none;" >
+        <div class="container">
+            <h1>Stage selection</h1>
+            <div class="cards-stage">
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+                <div id="div_stages" class="card-stage">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div>
@@ -45,6 +115,5 @@
             </div>
         </div>
     </footer>
-    
 </body>
 </html>

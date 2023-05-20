@@ -8,6 +8,7 @@
     --clrLowPrimary:#222222;
     --clrLowSecondary:black;
     --clrLowPrimaryOpacity:#222222ec;
+    --clrSelected: #1DC45A;
     --fontPrimary: "roman", sans-serif;
     --fontSecondary: Verdana, Geneva, Tahoma, sans-serif;
 }

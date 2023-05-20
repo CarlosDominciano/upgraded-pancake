@@ -2,11 +2,14 @@ const canvasOutfit = document.getElementById('canvas_outfit')
 const chartOutfit =  document.getElementById('chart_outfit')
 const canvasCharacter = document.getElementById('canvas_character')
 const chartCharacter =  document.getElementById('chart_character')
-const bodySearch = document.getElementsByTagName("body")[0]
-const form = document.getElementById("form_search")
-const chartColors = ["#BB0A0A", "#DFDFDF"]
 
-const imgfoda = document.getElementById("imagemFoda")
+const bodySearch = document.getElementsByTagName("body")[0]
+const ttlinformation = document.getElementById("ttl_information")
+const form = document.getElementById("form_search")
+const sltOutfit = document.getElementById("slt_outfit")
+const sltCharacter = document.getElementById("slt_character")
+
+const chartColors = ["#BB0A0A", "#DFDFDF"]
 
 const labelsOutfit = [];
 const datasOutfit = [];
@@ -41,24 +44,30 @@ const dataCharacter = {
 
 
 bodySearch.onload = () => {
+  validateSession()
+  ttlinformation.textContent = `Hello, ${sessionStorage.NAME_USER}!`
   fetch("/outfits", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     }
   }).then(async function (response) {
-    const sltOutfit = document.getElementById("slt_outfit");
     const outfits = await response.json();
     for (let i = 0; i < outfits.length; i++) {
       const outfit = outfits[i]
       getFavoritedOutfit(outfit.id)
       const newSltOutfit = document.createElement("option");
-      newSltOutfit.value = outfit.name;
+      newSltOutfit.value = outfit.id;
       newSltOutfit.textContent = outfit.name;
       sltOutfit.appendChild(newSltOutfit);
     }
     setTimeout(() => {
-      const heightChart = (labelsOutfit.length * 100) + 'px'
+      let heightChart;
+      if (labelsOutfit.length > 1) {
+        heightChart = (labelsOutfit.length * 55 + 100) + 'px'
+      } else {
+        heightChart = "150px" 
+      }
       chartOutfit.classList.add('new-height-outfit')
       const stylesheet = document.styleSheets[0];
       stylesheet.insertRule('.new-height-outfit { }', stylesheet.cssRules.length);
@@ -75,19 +84,22 @@ bodySearch.onload = () => {
       "Content-Type": "application/json",
     }
   }).then(async function (response) {
-    const sltCharacter = document.getElementById("slt_character");
     const characters = await response.json();
     for (let i = 0; i < characters.length; i++) {
       const character = characters[i]
       getFavoritedCharacter(character.id)
       const newSltCharacter = document.createElement("option");
-      newSltCharacter.value = character.name;
+      newSltCharacter.value = character.id;
       newSltCharacter.textContent = character.name;
       sltCharacter.appendChild(newSltCharacter);
     }
-    imgfoda.src = characters[19].url_image;
     setTimeout(() => {
-      const heightChart = (labelsCharacter.length * 100) + 'px'
+      let heightChart
+      if (labelsCharacter.length > 1) {
+        heightChart = (labelsCharacter.length * 55 + 100) + 'px'
+      } else {
+        heightChart = "150px" 
+      }
       chartCharacter.classList.add('new-height-character')
       const stylesheet = document.styleSheets[0];
       stylesheet.insertRule('.new-height-character { }', stylesheet.cssRules.length);
@@ -130,6 +142,33 @@ const getFavoritedOutfit = (fkOutfit) => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  const idUser = sessionStorage.ID_USER;
+  const btn = document.getElementById("btn_search")
+  const icon = '<ion-icon name="cloud-upload"></ion-icon>'
+  const textInsert = "Insert vote"
+  loading(btn.id, icon);
+
+  fetch(`/users/update-outfit-character/${idUser}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      fkOutfitServer: sltOutfit.value,
+      fkCharacterServer: sltCharacter.value,
+  })
+  }).then(function (response) {
+    if (response.ok) {
+      setTimeout(() => {
+        stopLoading(btn.id, textInsert)
+        location.reload()
+      }, 1000)
+    } else {
+      throw ("Error to create user!");
+    }
+  }).catch(function (response) {
+    stopLoading(btn.id, textInsert);
+  });
 })
 
 const chartCanvasOutfit = new Chart(canvasOutfit, {
@@ -225,7 +264,7 @@ const chartCanvasCharacter = new Chart(canvasCharacter, {
       },
       title: {
         display: true,
-        text: 'Most loved outfits',
+        text: 'Most loved characters',
         color: "#fff"
       }
     }

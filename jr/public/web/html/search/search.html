@@ -12,15 +12,15 @@
     <script defer src="../../js/globalFunctions.js"></script>
     <script defer src="../../js/validateSession.js"></script>
     <script defer src="./search.js"></script>
+    <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Search</title>
 </head>
 <body>
     <header class="header">
         <nav class="container">
-            <a href="../main/main.html">
-                <img src="../../../assets/images/spider_man_dark_logo.png" alt="">
-            </a>
+            <img src="../../../assets/images/spider_man_dark_logo.png" alt="">
             <ul>
                 <li class="disabled">
                     <a style="color: var(--clrPrimary); 
@@ -36,22 +36,21 @@
     
     <section class="charts">
         <div class="container">
+            <h1 id="ttl_information"></h1>
             <div class="segment">
                 <form id="form_search" action="" method="get" >
                     <select name="slt_outfit" id="slt_outfit">
-                        <option value="" selected disabled>Outfits</option>
-            
+                        <option value="null" selected disabled>Outfits</option>
                     </select>
                     <select name="slt_character" id="slt_character">
-                        <option value="" selected disabled>Charcters</option>
+                        <option value="null" selected disabled>Charcters</option>
                     </select>
                     <button id="btn_search" type="submit">Insert Vote</button>
                 </form>
-
             </div>
             <div class="segment">
                 <div class="chart" id="chart_outfit">
-                    <canvas height="100%" style="background-color: rgb(0, 0, 0);" id="canvas_outfit"></canvas>
+                    <canvas height="100%" id="canvas_outfit"></canvas>
                 </div>
 
                 <div class="chart" id="chart_character">
@@ -60,8 +59,6 @@
             </div>
         </div>
     </section>
-    
-    <img id="imagemFoda" src="" alt="">
 
     <footer class="footer">
         <div class="container">
