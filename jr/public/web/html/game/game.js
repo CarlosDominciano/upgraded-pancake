@@ -10,7 +10,6 @@ const playerTeam = []
 const cpuTeam = []
 
 bodyGame.onload = () => {
-
     validateSession()
     const divVillains = document.getElementById("div_villains")
     const divHeroes = document.getElementById("div_heroes")
@@ -87,9 +86,31 @@ const selectCharacter = (character) => {
 const startBattle = () => {
   const gameSection = document.getElementsByClassName("game")[0]
   const stageSection = document.getElementsByClassName("stage")[0]
+  const divStages = document.getElementById("div_stages")
   gameSection.style.display = "none"
   stageSection.style.display = "block"
   console.log(playerTeam)
 
-  
+  fetch("/stages", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+}).then(async function (response) {
+    const stages = await response.json();
+    for (let i = 0; i < stages.length; i++) {
+        const stage = stages[i]
+        const newCardStage = document.createElement("div");
+        newCardStage.className = "card-stage"
+        newCardStage.style.backgroundImage = `linear-gradient(to bottom, #ffffff30, #000000b8), url('${stage.url_image}')`;
+        newCardStage.addEventListener('click', function () {
+          selectStage(stage)
+      })
+        divStages.appendChild(newCardStage)
+      }
+});
+}
+
+const selectStage = (stage) => {
+  bodyGame.style.backgroundImage = `url('${stage.url_image}')`;
 }

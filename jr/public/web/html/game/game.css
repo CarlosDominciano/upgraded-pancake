@@ -1,3 +1,8 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .game, .stage {
     margin: 2em 0;
     width: 100%;
@@ -181,11 +186,9 @@
 .stage .cards-stage .card-stage:nth-child(odd) {
     border-top-right-radius: 7em;
     border-bottom-left-radius: 5em;
-    background-image: url("https://fightersgeneration.com/nf9/game/stage/mvc-stage-neo-stpetersburg.gif");
 }
 
 .stage .cards-stage .card-stage:nth-child(even) {
     border-top-left-radius: 7em;
     border-bottom-right-radius: 5em;
-    background-image: url("https://fightersgeneration.com/nf9/game/stage/mvc-stage-headquarters-of-evil.gif");
 }

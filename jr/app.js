@@ -12,6 +12,7 @@ var indexRouter = require("./src/routes/index")
 var userRouter = require("./src/routes/user")
 var outfitRouter = require("./src/routes/outfit")
 var characterRouter = require("./src/routes/character")
+var stageRouter = require("./src/routes/stage")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -23,6 +24,7 @@ app.use("/", indexRouter)
 app.use("/users", userRouter)
 app.use("/outfits", outfitRouter)
 app.use("/characters", characterRouter)
+app.use("/stages", stageRouter)
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

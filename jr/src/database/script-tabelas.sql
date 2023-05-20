@@ -37,7 +37,7 @@ CREATE TABLE tb_stages (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(40) NOT NULL,
     url_image VARCHAR(255) NOT NULL
-)
+);
 
 SELECT * FROM tb_users;
 SELECT * FROM tb_outfits;
@@ -128,11 +128,11 @@ INSERT INTO tb_stages VALUES
 (null, "Gold Street", "https://fightersgeneration.com/nf9/game/stage/mvc-stage-spidersweb3.gif"),
 (null, "Headquarters of Evil", "https://fightersgeneration.com/nf9/game/stage/mvc-stage-headquarters-of-evil.gif"),
 (null, "Days of Future Past", "https://www.fightersgeneration.com/nf9/game/stage/mvc-stage-blue-area-of-the-moon.gif"),
-(null, "", ""),
-(null, "", ""),
-(null, "", ""),
-(null, "", ""),
-(null, "", ""),
+(null, "Zepelin", "https://fightersgeneration.com/nf9/game/stage/mvc-stage-neo-stpetersburg.gif"),
+(null, "Temple", "https://64.media.tumblr.com/5f7c5e44b63ac5c25255037f2b170da0/tumblr_p9uzckQT6n1xqepp2o1_640.gif"),
+(null, "Bath House", "https://media.tenor.com/l83Bn_fIxZMAAAAd/marvel-vs-capcom-bath-house.gif"),
+(null, "Cliff of Desolation", "https://www.fightersgeneration.com/nf9/game/stage/mvc-stage-cliff-of-desolation.gif"),
+(null, "Dojo", "https://i.pinimg.com/originals/8a/1b/9f/8a1b9fd731e87eedcea679eda33aa83b.gif");
 
 INSERT INTO tb_users VALUES
 (null, "Carlos Dominciano", "carlos.dominciano@gmail.com", "12345678", null, null, null, null, 10, 1);
