@@ -101,6 +101,7 @@ body {
     padding: 0.4em;
     -webkit-text-stroke-width: 0.5px;
     color: var(--clrHighPrimary);
+    transition: all 0.2s ease-in-out;
 }
 
 .game .cards .card:hover {
@@ -158,9 +159,8 @@ body {
 }
 
 .stage .cards-stage .card-stage {
-    background-color: rgb(51, 22, 22);
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     padding: 1em 0;
     justify-self: center;
     background-size: cover;
@@ -176,14 +176,17 @@ body {
     -webkit-text-stroke-width: 0.5px;
     color: var(--clrHighPrimary);
     border: 0.30em solid var(--clrContrastSecondary);
+    border-radius: 20%;
+    transition: all 0.2s ease-in-out;
 }
 
 .stage .cards-stage .card-stage:hover {
     cursor: pointer;
+    border-color: var(--clrSelected);
     transform: scale(1.05);
 }
 
-.stage .cards-stage .card-stage:nth-child(odd) {
+/* .stage .cards-stage .card-stage:nth-child(odd) {
     border-top-right-radius: 7em;
     border-bottom-left-radius: 5em;
 }
@@ -191,4 +194,4 @@ body {
 .stage .cards-stage .card-stage:nth-child(even) {
     border-top-left-radius: 7em;
     border-bottom-right-radius: 5em;
-}
+} */

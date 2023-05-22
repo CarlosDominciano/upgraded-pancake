@@ -8,11 +8,11 @@ function getAll() {
 
 function getFavoritedOutfits(idOutfit) {
   var query = `
-  SELECT count(*) as votes, tb_outfits.name
-  FROM tb_users
-  INNER JOIN tb_outfits
-  ON tb_users.fk_outfit = tb_outfits.id
-  WHERE fk_outfit = ${idOutfit};
+    SELECT count(*) as votes, tb_outfits.name
+    FROM tb_users
+    INNER JOIN tb_outfits
+    ON tb_users.fk_outfit = tb_outfits.id
+    WHERE fk_outfit = ${idOutfit};
   `;
   return database.executar(query);
 }

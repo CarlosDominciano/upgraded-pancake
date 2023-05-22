@@ -112,5 +112,7 @@ const startBattle = () => {
 }
 
 const selectStage = (stage) => {
+  const stageSection = document.getElementsByClassName("stage")[0]
+  stageSection.style.display = "none"
   bodyGame.style.backgroundImage = `url('${stage.url_image}')`;
 }
