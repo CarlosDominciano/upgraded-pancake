@@ -3,12 +3,12 @@ body {
     background-size: cover;
 }
 
-.game, .stage {
+.game, .stage, .battle {
     margin: 2em 0;
     width: 100%;
 }
 
-.game .container, .stage .container {
+.game .container, .stage .container, .battle .container {
     margin: auto;
     width: 90%;
     display: flex;
@@ -16,7 +16,7 @@ body {
     align-items: center;
 }
 
-.game .container h1, .stage .container h1 {
+.game .container h1, .stage .container h1, .battle .container h1 {
     color: var(--clrLowSecondary); 
 }
 
@@ -46,7 +46,7 @@ body {
     height: fit-content;
 }
 
-.game .team {
+.game .start-battle {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -55,7 +55,7 @@ body {
     margin: 2em 0;
 }
 
-.game .team button {
+.game .start-battle button {
     position: fixed;
     font-size: medium;
     width: 25%;
@@ -69,25 +69,22 @@ body {
     text-align: center;
 }
 
-.game .team button:hover {
+.game .start-battle button:hover {
     cursor: pointer;
     transform: scale(1.2);
     background-color: var(--clrSecondary);
 }
 
-.game .team button:active {
+.game .start-battle button:active {
     transform: scale(1.1);
     background-color: var(--clrLowPrimary);
     transition: 0ms;
 }
 
-.game .cards .card {
+.game .cards .card, .battle .cards-battle .card {
     height: 140px;
     width: 80px;
     justify-self: center;
-}
-
-.game .cards .card {
     background-size: cover;
     background-position: center;
     background-size: cover;
@@ -104,12 +101,12 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.game .cards .card:hover {
+.game .cards .card:hover, .battle .cards-battle .card:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
 
-.game .cards .card span {
+.game .cards .card span, .battle .cards-battle .card span {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -122,20 +119,17 @@ body {
     font-family: var(--fontSecondary);
 }
 
-.game .cards .card .name {
+.game .cards .card .name, .battle .cards-battle .card .name {
     justify-content: center;
 }
 
 .game .cards .villains .card {
     border: 0.15em solid var(--clrPrimary);
     -webkit-text-stroke-color: var(--clrPrimary);
-
 }
 
 .game .cards .heroes .card {
     border: 0.15em solid var(--clrContrastPrimary);
-    background-image: linear-gradient(to bottom, #ffffff20, #000000b8),
-    url('https://i.pinimg.com/originals/3e/8a/23/3e8a230bdea7a7806c46a0049b748b68.png');
     -webkit-text-stroke-color: var(--clrContrastPrimary);
 }
 
@@ -195,3 +189,45 @@ body {
     border-top-left-radius: 7em;
     border-bottom-right-radius: 5em;
 } */
+
+.battle .container h1 {
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: var(--clrHighPrimary);
+}
+
+.battle .cards-battle {
+    width: 100%;
+}
+
+.battle .cards-battle .player, .battle .cards-battle .cpu {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+}
+
+
+.battle .cards-battle .card {
+    height: 200px;
+    width: 114px;
+}
+
+.battle .cards-battle .cpu .card {
+    border: 0.15em solid red;
+    color: blue;
+    -webkit-text-stroke-color: black;
+}
+
+.battle .cards-battle .player .card {
+    border: 0.15em solid rgb(255, 0, 187);
+    color: rgb(0, 217, 255);
+    -webkit-text-stroke-color: rgb(144, 0, 255);
+}
+
+
+.battle .cards-battle .card .status {
+    font-size: x-small;
+    -webkit-text-stroke-width: 0px;
+    color: red;
+    font-family: var(--fontSecondary);
+}
+

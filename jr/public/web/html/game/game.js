@@ -6,6 +6,7 @@ btnBattle.addEventListener("click", () => {
   startBattle()
 })
 
+let characters = []
 const playerTeam = []
 const cpuTeam = []
 
@@ -20,7 +21,7 @@ bodyGame.onload = () => {
           "Content-Type": "application/json",
         }
     }).then(async function (response) {
-        const characters = await response.json();
+        characters = await response.json();
         for (let i = 0; i < characters.length; i++) {
             const character = characters[i]
             const newCardCharacter = document.createElement("div");
@@ -39,7 +40,7 @@ bodyGame.onload = () => {
             newCardCharacter.id = character.id
             newCardCharacter.style.backgroundImage = `linear-gradient(to bottom, #ffffff30, #000000b8), url('${character.url_image}')`;
             newCardCharacter.addEventListener('click', function () {
-                selectCharacter(character)
+                selectPlayerCharacter(character)
             })
             newStatusBar.append(newDefSpan, newHpSpan, newAtkSpan)
             newCardCharacter.append(newStatusBar, newNameSpan)
@@ -52,13 +53,27 @@ bodyGame.onload = () => {
     });
 }
 
-const selectCharacter = (character) => {
+const selectCpuCharacter = () => {
+  const cardsArray = characters
+  let i = 0
+  while (i < 6) {
+    const min = 0
+    const max = cardsArray.length
+    const cardIndex = (Math.random() * (max - min)).toFixed(0);
+    if (cpuTeam.indexOf(cardIndex) == -1) {
+      cpuTeam.push(cardsArray[cardIndex])
+      i++;
+    }
+  }
+}
+
+const selectPlayerCharacter = (character) => {
   const index = playerTeam.findIndex(obj => obj.id === character.id);
   const clrPrimary = getComputedStyle(document.documentElement).getPropertyValue('--clrPrimary');
   const clrConstratPrimary = getComputedStyle(document.documentElement).getPropertyValue('--clrContrastPrimary');
   const clrSelected = getComputedStyle(document.documentElement).getPropertyValue('--clrSelected');
   const characterId = document.getElementById(character.id);
-  const divTeam = document.getElementById("div_team");
+  const divStartBattle = document.getElementById("div_start_battle");
 
   if (index !== -1) {
     playerTeam.splice(index, 1);
@@ -67,8 +82,8 @@ const selectCharacter = (character) => {
     } else {
       characterId.style.borderColor = clrPrimary;
     }
-    if (btnBattle.parentNode === divTeam) {
-        divTeam.removeChild(btnBattle);
+    if (btnBattle.parentNode === divStartBattle) {
+        divStartBattle.removeChild(btnBattle);
     }
     return;
   }
@@ -79,17 +94,20 @@ const selectCharacter = (character) => {
   playerTeam.push(character);
   characterId.style.borderColor = clrSelected;
   if (playerTeam.length == 6) {
-    divTeam.appendChild(btnBattle);
-  } 
+    divStartBattle.appendChild(btnBattle);
+  }
 }
 
 const startBattle = () => {
+  selectCpuCharacter()
   const gameSection = document.getElementsByClassName("game")[0]
   const stageSection = document.getElementsByClassName("stage")[0]
   const divStages = document.getElementById("div_stages")
   gameSection.style.display = "none"
   stageSection.style.display = "block"
-  console.log(playerTeam)
+  console.log("Player's Team: ",playerTeam)
+  console.log("Cpu's Team: ",cpuTeam)
+
 
   fetch("/stages", {
     method: "GET",
@@ -114,5 +132,5 @@ const startBattle = () => {
 const selectStage = (stage) => {
   const stageSection = document.getElementsByClassName("stage")[0]
   stageSection.style.display = "none"
-  bodyGame.style.backgroundImage = `url('${stage.url_image}')`;
+  bodyGame.style.backgroundImage = `linear-gradient(to bottom, #00000050, #000000dd), url('${stage.url_image}')`;
 }
