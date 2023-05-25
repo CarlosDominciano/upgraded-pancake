@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function getAll() {
   var query =
-    `SELECT * FROM tb_stages;`
+    `SELECT * FROM tb_stage;`
   return database.executar(query);
 }
 

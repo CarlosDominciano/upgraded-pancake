@@ -1,7 +1,8 @@
+DROP DATABASE spider_man;
 CREATE DATABASE IF NOT EXISTS spider_man;
 USE spider_man;
 
-CREATE TABLE tb_characters (
+CREATE TABLE tb_character (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(30) NOT NULL,
     url_image VARCHAR(255) NOT NULL,
@@ -11,14 +12,14 @@ CREATE TABLE tb_characters (
     hero BOOLEAN NOT NULL
 );
 
-CREATE TABLE tb_outfits (
+CREATE TABLE tb_outfit (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(30) NOT NULL, 
     fk_character INT NULL,
     FOREIGN KEY (fk_character) REFERENCES tb_character(id)
 );
 
-CREATE TABLE tb_users (
+CREATE TABLE tb_user (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(60) NOT NULL,
     email VARCHAR(70) NOT NULL,
@@ -33,19 +34,19 @@ CREATE TABLE tb_users (
     FOREIGN KEY (fk_outfit) REFERENCES tb_outfit(id)
 );
 
-CREATE TABLE tb_stages (
+CREATE TABLE tb_stage (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(40) NOT NULL,
+    name VARCHAR(30) NOT NULL,
     url_image VARCHAR(255) NOT NULL
 );
 
-SELECT * FROM tb_users;
-SELECT * FROM tb_outfits;
-SELECT * FROM tb_characters; 
-SELECT * FROM tb_stages; 
+SELECT * FROM tb_user;
+SELECT * FROM tb_outfit;
+SELECT * FROM tb_character; 
+SELECT * FROM tb_stage; 
 
 # Villains
-INSERT INTO tb_characters VALUES 
+INSERT INTO tb_character VALUES 
 (null, "Rhino", "https://game-assets.snap.fan/processed_source_images/Baked/Cards/Rhino_05%2FRhino_05_Foreground.webp?v11",
 150, 70, 90, false),
 (null, "Vulture", "https://game-assets.snap.fan/processed_source_images/Baked/Cards/Vulture%2FVulture_Foreground.webp?v11",
@@ -90,7 +91,7 @@ INSERT INTO tb_characters VALUES
 120, 80, 120, false);
 
 # Heroes
-INSERT INTO tb_characters VALUES 
+INSERT INTO tb_character VALUES 
 (null, "Spiderman 2099", "https://game-assets.snap.fan/processed_source_images/Baked/Cards/SpiderMan2099%2FSpiderMan2099_Foreground.webp?v11",
 100, 90, 70, true),
 (null, "Spider Gwen", "https://game-assets.snap.fan/processed_source_images/Baked/Cards/GhostSpider%2FGhostSpider_Foreground.webp?v11",
@@ -101,7 +102,7 @@ INSERT INTO tb_characters VALUES
 60, 40, 150, true),
 (null, "Spider Hulk", "https://cdn130.picsart.com/309739969157211.png",
 70, 130, 160, true),
-(null, "Spider Girl", "https://pm1.narvii.com/6271/920a91338460086351a41d26c1c996c58671a679_00.jpg",
+(null, "Spider Girl", "https://64.media.tumblr.com/a5f0f67e5466f5b4782d9f513cd03f81/tumblr_pp8tkqTYi71wy117so1_500.pnj",
 90, 40, 120, true),
 (null, "Spiderman Symbiote", "https://game-assets.snap.fan/processed_source_images/Baked/Cards/SpiderMan_02%2FSpiderMan_02_Foreground.webp?v11",
 130, 120, 70, true),
@@ -121,10 +122,10 @@ INSERT INTO tb_characters VALUES
 90, 50, 120, true);
 
 
-INSERT INTO tb_outfits VALUES
+INSERT INTO tb_outfit VALUES
 (null, "God Venom", 10);
 
-INSERT INTO tb_stages VALUES
+INSERT INTO tb_stage VALUES
 (null, "Gold Street", "https://fightersgeneration.com/nf9/game/stage/mvc-stage-spidersweb3.gif"),
 (null, "Headquarters of Evil", "https://fightersgeneration.com/nf9/game/stage/mvc-stage-headquarters-of-evil.gif"),
 (null, "Days of Future Past", "https://www.fightersgeneration.com/nf9/game/stage/mvc-stage-blue-area-of-the-moon.gif"),
@@ -134,7 +135,6 @@ INSERT INTO tb_stages VALUES
 (null, "Cliff of Desolation", "https://www.fightersgeneration.com/nf9/game/stage/mvc-stage-cliff-of-desolation.gif"),
 (null, "Dojo", "https://i.pinimg.com/originals/8a/1b/9f/8a1b9fd731e87eedcea679eda33aa83b.gif");
 
-INSERT INTO tb_users VALUES
+INSERT INTO tb_user VALUES
 (null, "Carlos Dominciano", "carlos.dominciano@gmail.com", "12345678", null, null, null, null, 10, 1);
 
-#DROP DATABASE spider_man;

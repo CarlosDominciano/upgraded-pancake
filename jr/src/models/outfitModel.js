@@ -2,16 +2,16 @@ var database = require("../database/config")
 
 function getAll() {
   var query =
-    `SELECT * FROM tb_outfits;`
+    `SELECT * FROM tb_outfit;`
   return database.executar(query);
 }
 
 function getFavoritedOutfits(idOutfit) {
   var query = `
-    SELECT count(*) as votes, tb_outfits.name
-    FROM tb_users
-    INNER JOIN tb_outfits
-    ON tb_users.fk_outfit = tb_outfits.id
+    SELECT count(*) as votes, tb_outfit.name
+    FROM tb_user
+    INNER JOIN tb_outfit
+    ON tb_user.fk_outfit = tb_outfit.id
     WHERE fk_outfit = ${idOutfit};
   `;
   return database.executar(query);
