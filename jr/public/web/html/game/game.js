@@ -1,5 +1,6 @@
 const bodyGame = document.getElementsByTagName("body")[0]
 const btnStageSelect = document.createElement("button");
+let counter = 0;
 btnStageSelect.textContent = "Stage Select";
 btnStageSelect.addEventListener("click", () => {
   selectStage()
@@ -10,6 +11,7 @@ const gameLog = []
 const playerTeam = []
 const cpuTeam = []
 const cpuTeamName = []
+const battleCharacters = []
 
 bodyGame.onload = () => {
     validateSession()
@@ -127,20 +129,22 @@ const startBattle = (stage) => {
   bodyGame.style.backgroundImage = `linear-gradient(to bottom, #00000050, #000000dd), url('${stage.url_image}')`;
   for (let i = 0; i < playerTeam.length; i++) {
     const character = playerTeam[i]
+    character.id = i+1
     const newCardCharacter = buildCard(character)
-    newCardCharacter.addEventListener('click', function () {
-      console.log(character.team)
-    })
     newCardCharacter.id = i+1
+    newCardCharacter.addEventListener('click', function () {
+      chooseAttackers(character)
+    })
     divBattlePlayer.appendChild(newCardCharacter) 
   }
   for (let i = 0; i < cpuTeam.length; i++) {
     const character = cpuTeam[i]
+    character.id = i+7
     const newCardCharacter = buildCard(character)
-    newCardCharacter.addEventListener('click', function () {
-        console.log(character.team)
-    })
     newCardCharacter.id = i+7
+    newCardCharacter.addEventListener('click', function () {
+      chooseAttackers(character)
+    })
     divBattleCpu.appendChild(newCardCharacter) 
   }
 }
@@ -166,6 +170,59 @@ const buildCard = (character) => {
   return newCardCharacter
 }
 
-const attack = () => {
-
+const chooseAttackers = (character) => {
+  const index = battleCharacters.indexOf(character)
+  const characterId = document.getElementById(character.id)
+  const clrSelected = getComputedStyle(document.documentElement).getPropertyValue('--clrSelected')
+  const clrCpu = getComputedStyle(document.documentElement).getPropertyValue('--clrPrimary');
+  const clrPlayer = getComputedStyle(document.documentElement).getPropertyValue('--clrContrastPrimary');
+  const battleLog = document.getElementById("div_battle_log")
+  if (index === -1) {
+  const indexTeam = battleCharacters.findIndex(obj => obj.team === character.team)
+    if (indexTeam === -1) {
+      battleCharacters.push(character)
+      characterId.style.borderColor = clrSelected;
+    } else if (indexTeam !== -1) {
+      const characterIdBattle = document.getElementById(battleCharacters[indexTeam].id)
+      if (character.team) { 
+        characterId.style.borderColor = clrSelected;
+        characterIdBattle.style.borderColor = clrPlayer;
+        battleCharacters.splice(indexTeam, 1)
+        battleCharacters.push(character)
+      } else {
+        characterId.style.borderColor = clrSelected;
+        characterIdBattle.style.borderColor = clrCpu;
+        battleCharacters.splice(indexTeam, 1)
+        battleCharacters.push(character)
+      }
+    }
+  } else if (index !== -1) {
+    if (character.team) {
+      characterId.style.borderColor = clrPlayer;
+      battleCharacters.splice(index, 1)
+    } else {
+      characterId.style.borderColor = clrCpu;
+      battleCharacters.splice(index, 1)
+    }
+  }
+  if (battleCharacters.length == 2) {
+    if (battleCharacters[0].team) {
+      const characterIdBattlePlayer = document.getElementById(battleCharacters[0].id)
+      const characterIdBattleCpu = document.getElementById(battleCharacters[1].id)
+      characterIdBattleCpu.style.borderColor = clrCpu;
+      characterIdBattlePlayer.style.borderColor = clrPlayer;
+      console.log(`${battleCharacters[0].name} vs ${battleCharacters[1].name}`)
+    } else if (battleCharacters[1].team) {
+      const characterIdBattleCpu = document.getElementById(battleCharacters[0].id)
+      const characterIdBattlePlayer = document.getElementById(battleCharacters[1].id)
+      characterIdBattleCpu.style.borderColor = clrCpu;
+      characterIdBattlePlayer.style.borderColor = clrPlayer;
+      console.log(`${battleCharacters[1].name} vs ${battleCharacters[0].name}`)
+    }
+    const newHr = document.createElement("hr")
+    const newParagraph = document.createElement("p")
+    newParagraph.textContent = `${++counter} - ${battleCharacters[0].team ? battleCharacters[0].name : battleCharacters[1].name} vs ${battleCharacters[1].team ? battleCharacters[0].name : battleCharacters[1].name}`
+    battleLog.append(newHr, newParagraph)
+    battleCharacters.splice(0, 2)
+  }
 }
