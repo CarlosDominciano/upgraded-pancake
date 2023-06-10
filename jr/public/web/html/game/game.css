@@ -212,6 +212,34 @@ body {
     width: 114px;
 }
 
+.battle .cards-battle button {
+    display: none;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    font-size: medium;
+    width: 25%;
+    border-radius: 0.5em;
+    padding: 0.2em 0.1em;
+    background-color: var(--clrPrimary);
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.battle .cards-battle button:hover {
+    cursor: pointer;
+    background-color: var(--clrSecondary);
+}
+
+.battle .cards-battle button:active {
+    background-color: var(--clrLowPrimary);
+    transition: 0ms;
+}
+
 .battle .cards-battle .cpu .card {
     border: 0.15em solid var(--clrPrimary);
     color: var(--clrHighPrimary);

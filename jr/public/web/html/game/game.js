@@ -1,9 +1,17 @@
 const bodyGame = document.getElementsByTagName("body")[0]
+const btnStartBattle = document.getElementById("btn_start_battle")
 const btnStageSelect = document.createElement("button");
 let counter = 0;
 btnStageSelect.textContent = "Stage Select";
 btnStageSelect.addEventListener("click", () => {
   selectStage()
+})
+btnStartBattle.addEventListener("click", () => {
+  if (battleCharacters[0].hit_points > 0 && battleCharacters[1].hit_points > 0) {
+    attack()
+  } else {
+    alert(`${battleCharacters[0].name} life = ${battleCharacters[0].hit_points} and ${battleCharacters[1].name} life = ${battleCharacters[1].hit_points}`)
+  }
 })
 
 let characters = []
@@ -92,6 +100,7 @@ const selectPlayerCharacter = (character) => {
 
 const selectStage = () => {
   selectCpuCharacter()
+  onGame = true
   const gameSection = document.getElementsByClassName("game")[0]
   const stageSection = document.getElementsByClassName("stage")[0]
   const divStages = document.getElementById("div_stages")
@@ -162,6 +171,9 @@ const buildCard = (character) => {
   newDefSpan.textContent = character.defense
   newHpSpan.textContent = character.hit_points
   newAtkSpan.textContent = character.attack
+  newDefSpan.id = "def" + character.id
+  newHpSpan.id = "hp" + character.id
+  newAtkSpan.id = "atk" + character.id
   newNameSpan.textContent = character.name
   newCardCharacter.id = character.name
   newCardCharacter.style.backgroundImage = `linear-gradient(to bottom, #ffffff30, #000000b8), url('${character.url_image}')`;
@@ -176,7 +188,7 @@ const chooseAttackers = (character) => {
   const clrSelected = getComputedStyle(document.documentElement).getPropertyValue('--clrSelected')
   const clrCpu = getComputedStyle(document.documentElement).getPropertyValue('--clrPrimary');
   const clrPlayer = getComputedStyle(document.documentElement).getPropertyValue('--clrContrastPrimary');
-  const battleLog = document.getElementById("div_battle_log")
+  console.log(character)
   if (index === -1) {
   const indexTeam = battleCharacters.findIndex(obj => obj.team === character.team)
     if (indexTeam === -1) {
@@ -206,23 +218,83 @@ const chooseAttackers = (character) => {
     }
   }
   if (battleCharacters.length == 2) {
-    if (battleCharacters[0].team) {
-      const characterIdBattlePlayer = document.getElementById(battleCharacters[0].id)
-      const characterIdBattleCpu = document.getElementById(battleCharacters[1].id)
-      characterIdBattleCpu.style.borderColor = clrCpu;
-      characterIdBattlePlayer.style.borderColor = clrPlayer;
-      console.log(`${battleCharacters[0].name} vs ${battleCharacters[1].name}`)
-    } else if (battleCharacters[1].team) {
-      const characterIdBattleCpu = document.getElementById(battleCharacters[0].id)
-      const characterIdBattlePlayer = document.getElementById(battleCharacters[1].id)
-      characterIdBattleCpu.style.borderColor = clrCpu;
-      characterIdBattlePlayer.style.borderColor = clrPlayer;
-      console.log(`${battleCharacters[1].name} vs ${battleCharacters[0].name}`)
-    }
-    const newHr = document.createElement("hr")
-    const newParagraph = document.createElement("p")
-    newParagraph.textContent = `${++counter} - ${battleCharacters[0].team ? battleCharacters[0].name : battleCharacters[1].name} vs ${battleCharacters[1].team ? battleCharacters[0].name : battleCharacters[1].name}`
-    battleLog.append(newHr, newParagraph)
-    battleCharacters.splice(0, 2)
+    btnStartBattle.style.display = "block"
+  } else {
+    btnStartBattle.style.display = "none"
   }
+}
+
+const attack = () => {
+  const clrCpu = getComputedStyle(document.documentElement).getPropertyValue('--clrPrimary');
+  const clrPlayer = getComputedStyle(document.documentElement).getPropertyValue('--clrContrastPrimary');
+  const battleLog = document.getElementById("div_battle_log")
+  const characterIdBattle1 = document.getElementById(battleCharacters[0].id)
+  const characterIdBattle2 = document.getElementById(battleCharacters[1].id)
+  let damagePlayer;
+  let damageCpu;
+  characterIdBattle1.style.borderColor = battleCharacters[0].team ? clrPlayer : clrCpu;
+  characterIdBattle2.style.borderColor = battleCharacters[1].team ? clrPlayer : clrCpu;
+  if (battleCharacters[0].defense > 0) {
+    battleCharacters[0].defense -= battleCharacters[1].attack
+    battleCharacters[0].defense = battleCharacters[0].defense < 0 ? 0 : battleCharacters[0].defense;
+    damagePlayer = true  
+  } else {
+    battleCharacters[0].hit_points -= battleCharacters[1].attack
+    battleCharacters[0].hit_points = battleCharacters[0].hit_points < 0 ? 0 : battleCharacters[0].hit_points;
+    damagePlayer = false
+  }
+  if (battleCharacters[1].defense > 0) {
+    battleCharacters[1].defense -= battleCharacters[0].attack
+    battleCharacters[1].defense = battleCharacters[1].defense < 0 ? 0 : battleCharacters[1].defense;
+    damageCpu = true  
+  } else {
+    battleCharacters[1].hit_points -= battleCharacters[0].attack
+    battleCharacters[1].hit_points = battleCharacters[1].hit_points < 0 ? 0 : battleCharacters[1].hit_points;
+    damageCpu = false  
+  }
+  const newHr = document.createElement("hr")
+  const newParagraph = document.createElement("p")
+  newParagraph.innerHTML = `${++counter} - ${battleCharacters[0].team 
+    ? `${battleCharacters[0].name} Damaged ${battleCharacters[1].name} in ${damageCpu ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[1].hit_points} DEF: ${battleCharacters[1].defense}`
+    : `${battleCharacters[1].name} Damaged ${battleCharacters[0].name} in ${damageCpu ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[0].hit_points} DEF: ${battleCharacters[0].defense}`
+  }
+  <br> vs <br>
+  ${battleCharacters[1].team 
+    ? `${battleCharacters[0].name} Damaged ${battleCharacters[1].name} in ${damagePlayer ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[1].hit_points} DEF: ${battleCharacters[1].defense}`
+    : `${battleCharacters[1].name} Damaged ${battleCharacters[0].name} in ${damagePlayer ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[0].hit_points} DEF: ${battleCharacters[0].defense}`
+  }`
+  battleLog.append(newHr, newParagraph)
+  battleCharacters.splice(0, 2)
+  btnStartBattle.style.display = "none"
+
+  let allPlayerDead = true;
+  for (let i = 0; i < playerTeam.length; i++) {
+    if (playerTeam[i].hit_points > 0) {
+      allPlayerDead = false;
+      break;
+    }
+  }
+  if (allPlayerDead) {
+    congratulationLose();
+  }
+
+  let allCpuDead = true;
+  for (let i = 0; i < cpuTeam.length; i++) {
+    if (cpuTeam[i].hit_points > 0) {
+      allCpuDead = false;
+      break;
+    }
+  }
+  if (allCpuDead) {
+    congratulationWin();
+  }
+}
+
+const congratulationWin = () => {
+  alert("You win")
+}
+
+
+const congratulationLose = () => {
+  alert("You lose")
 }
