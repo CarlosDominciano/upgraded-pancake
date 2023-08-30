@@ -1,0 +1,10 @@
+:root{
+    --clrPrimaryBlack: #0A0A0A;
+    --clrSecondaryBlack: #030303;
+    --clrPrimaryWhite: #C2C1C2;
+    --clrSecondaryWhite: #DFDFDF;
+    --clrPrimaryRed: #A52826;
+    --clrSecondaryRed: #8C2221;
+    --fontPrimary: 'prompt', sans-serif;
+}
+

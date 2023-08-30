@@ -1,0 +1,19 @@
+
+@import url(root.css);
+h2 {
+    font-size: 2rem;
+    font-family: "prompt", sans-serif;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 8px var(--clrPrimaryRed);
+    color: var(--clrSecondaryWhite);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 2rem 0 1rem 0;
+}
+
+@font-face {
+    font-family: "prompt";
+    src: url('../fonts/Prompt/Prompt-Bold.ttf') format('truetype');
+}
+
