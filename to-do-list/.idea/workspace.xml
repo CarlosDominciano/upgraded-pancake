@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="81e65e74-8242-4de8-b9ee-1fc0ae40041a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../jr/public/web/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/../jr/public/web/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jr/public/web/html/game/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/../jr/public/web/html/game/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jr/public/web/html/game/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/../jr/public/web/html/game/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jr/public/web/html/main/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../jr/public/web/html/main/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jr/public/web/html/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../jr/public/web/html/main/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jr/src/database/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../jr/src/database/config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2qPZTDwqpb9re3zU4pKiCBcpc1a" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="81e65e74-8242-4de8-b9ee-1fc0ae40041a" name="Changes" comment="" />
+      <created>1734566178414</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734566178414</updated>
+    </task>
+    <servers />
+  </component>
+</project>

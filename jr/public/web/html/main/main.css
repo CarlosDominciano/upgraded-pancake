@@ -42,12 +42,12 @@
 
 .about .balloon:nth-child(1)::after {
     left: 50%;
-    top: 20px;
+    top: 19.2px;
     border-color: transparent var(--clrLowPrimary) var(--clrLowPrimary) transparent;
 }
 
 .about .balloon:nth-child(2)::after {
-    left: -20px;
+    left: -19.2px;
     top: -20px;
     border-color:transparent transparent var(--clrLowPrimary) var(--clrLowPrimary) ;
 }

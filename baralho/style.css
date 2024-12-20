@@ -1,0 +1,125 @@
+body {
+    background-color: #056839;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* 
+body::after {
+    content: "";
+    width: 70%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid wheat;
+    border-radius: 10vb;
+    display: block;
+    z-index: -1;
+} */
+
+canvas {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+.board_middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 5vb 2vb;
+    width: 70%;
+    height: 50%;
+    border: 2px solid wheat;
+    border-radius: 10vb; 
+}
+
+.discard_pile {
+    display: grid;
+    grid-template-columns: 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% ;
+    row-gap: 5px;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 100%;
+}
+
+.master_card {
+    display: flex;
+    width: 35%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.board_middle .master_card .mini-card {
+    background-color: #fff;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    height: 15rem;
+    width: 10rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6.5rem;
+}
+
+.board_middle .discard_pile .mini-card {
+    background-color: #fff;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: move;
+    user-select: none;
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #ffffff;
+    background-color: #1c1c1c;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.4s;
+    margin: 1rem;
+}
+
+button:hover {
+    color: #ffffff;
+    background-color: #414141;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}

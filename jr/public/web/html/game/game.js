@@ -255,13 +255,13 @@ const attack = () => {
   const newHr = document.createElement("hr")
   const newParagraph = document.createElement("p")
   newParagraph.innerHTML = `${++counter} - ${battleCharacters[0].team 
-    ? `${battleCharacters[0].name} Damaged ${battleCharacters[1].name} in ${damageCpu ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[1].hit_points} DEF: ${battleCharacters[1].defense}`
-    : `${battleCharacters[1].name} Damaged ${battleCharacters[0].name} in ${damageCpu ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[0].hit_points} DEF: ${battleCharacters[0].defense}`
+    ? `<b style="color: blue">${battleCharacters[0].name}</b> Damaged <b style="color: red">${battleCharacters[1].name}</b> in ${damageCpu ? "<b style='color: green'>DEF </b>" : "<b style='color: indianred'>HP </b>"}, <b style="color: blue">${battleCharacters[0].name}</b> <b style='color: indianred'>HP</b> and <b style='color: green'>DEF</b> now is HP: <b style="color: indianred">${battleCharacters[0].hit_points}</b> DEF: <b style="color: green">${battleCharacters[0].defense}</b>`
+    : `<b style="color: blue">${battleCharacters[1].name}</b> Damaged <b style="color: red">${battleCharacters[0].name}</b> in ${damageCpu ? "<b style='color: green'>DEF </b>" : "<b style='color: indianred'>HP </b>"}, <b style="color: blue">${battleCharacters[1].name}</b> <b style='color: indianred'>HP</b> and <b style='color: green'>DEF</b> now is HP: <b style="color: indianred">${battleCharacters[1].hit_points}</b> DEF: <b style="color: green">${battleCharacters[1].defense}</b>`
   }
   <br> vs <br>
   ${battleCharacters[1].team 
-    ? `${battleCharacters[0].name} Damaged ${battleCharacters[1].name} in ${damagePlayer ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[1].hit_points} DEF: ${battleCharacters[1].defense}`
-    : `${battleCharacters[1].name} Damaged ${battleCharacters[0].name} in ${damagePlayer ? "DEF " : "HP "}, your HP and DEF now is HP: ${battleCharacters[0].hit_points} DEF: ${battleCharacters[0].defense}`
+    ? `<b style="color: red">${battleCharacters[0].name}</b> Damaged <b style="color: blue">${battleCharacters[1].name}</b> in ${damageCpu ? "<b style='color: green'>DEF </b>" : "<b style='color: indianred'>HP </b>"}, <b style="color: red">${battleCharacters[0].name}</b> <b style='color: indianred'>HP</b> and <b style='color: green'>DEF</b> now is HP: <b style="color: indianred">${battleCharacters[0].hit_points}</b> DEF: <b style="color: green">${battleCharacters[0].defense}</b>`
+    : `<b style="color: red">${battleCharacters[1].name}</b> Damaged <b style="color: blue">${battleCharacters[0].name}</b> in ${damageCpu ? "<b style='color: green'>DEF </b>" : "<b style='color: indianred'>HP </b>"}, <b style="color: red">${battleCharacters[1].name}</b> <b style='color: indianred'>HP</b> and <b style='color: green'>DEF</b> now is HP: <b style="color: indianred">${battleCharacters[1].hit_points}</b> DEF: <b style="color: green">${battleCharacters[1].defense}</b>`
   }`
   battleLog.append(newHr, newParagraph)
   battleCharacters.splice(0, 2)

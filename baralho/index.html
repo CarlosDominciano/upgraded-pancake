@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card draw</title>
+    <script defer src="script.js"></script>
+    
+</head>
+<body>
+    <canvas id="canvas_board_background_details"></canvas>
+    <div class="buttons" id="div_buttons">
+        <button onclick="drawCard()">Draw</button>
+        <button onclick="startRound()">Shuffle</button>
+    </div>
+    <div class="board_middle" id="div_board_middle">
+        <div class="discard_pile" id="div_discard_pile"></div>
+        <div class="master_card" id="div_master_card"></div>
+    </div>
+    
+</body>
+</html>
